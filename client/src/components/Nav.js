@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
   barColor: {
     backgroundColor: "#ef5350",
   },
+  toolbarButtons: {
+    marginLeft: "auto",
+  },
 }));
 
 const Nav = () => {
@@ -38,10 +41,16 @@ const Nav = () => {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              News
-            </Typography>
-            <Button color="inherit">Login</Button>
+
+            <div>
+              <Button color="inherit">Budgets</Button>
+              <Button color="inherit">Debts</Button>{" "}
+            </div>
+            <div className={classes.toolbarButtons}>
+              <Button color="inherit">Login</Button>
+              <Button color="inherit">Signup</Button>
+              <Button color="inherit">Login</Button>
+            </div>
           </Toolbar>
         </Container>
       </AppBar>
