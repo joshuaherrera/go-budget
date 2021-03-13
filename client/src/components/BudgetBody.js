@@ -1,34 +1,54 @@
 import React from "react";
 import BudgetCol from "../components/BudgetCol";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
+
+const useStyles = makeStyles((theme) => ({
+  formStyle: {
+    "& > *": {
+      margin: theme.spacing(1),
+      width: "25ch",
+    },
+    gridStyle: {
+      flexGrow: 1,
+    },
+  },
+}));
 
 const BudgetBody = () => {
+  const classes = useStyles();
   return (
     <>
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s6 push-s3">
-              <input
+      {/* would need to do Grids within grids */}
+      <div className="row">
+        <Grid container spacing={1} justify="center">
+          <form className={classes.formStyle}>
+            <div className={classes.formStyle}>
+              <Grid item xs={12}>
+                {/* <input
                 id="checkAmount"
                 type="number"
                 min="0.00"
                 max="9999999"
                 step="0.01"
-                class="validate"
-              />
-              <label for="checkAmount">Check Amount</label>
+                className="validate"
+              /> */}
+                <label for="checkAmount">Check Amount</label>
+                <TextField id="checkAmount" />
+              </Grid>
             </div>
-          </div>
-        </form>
+          </form>
+        </Grid>
       </div>
-      <div class="row">
-        <div class="col s4">
+      <div className="row">
+        <div className="col s4">
           <BudgetCol colName="Necessities" idName="needs" />
         </div>
-        <div class="col s4">
+        <div className="col s4">
           <BudgetCol colName="Debt / Savings" idName="dns" />
         </div>
-        <div class="col s4">
+        <div className="col s4">
           <BudgetCol colName="Wants" idName="wants" />
         </div>
       </div>
