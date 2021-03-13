@@ -10,7 +10,10 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       width: "25ch",
     },
-    gridStyle: {
+    gStyle: {
+      backgroundColor: "pink",
+    },
+    root: {
       flexGrow: 1,
     },
   },
@@ -21,12 +24,17 @@ const BudgetBody = () => {
   return (
     <>
       {/* would need to do Grids within grids */}
-      <div className="row">
-        <Grid container spacing={1} justify="center">
-          <form className={classes.formStyle}>
-            <div className={classes.formStyle}>
-              <Grid item xs={12}>
-                {/* <input
+      <div className={classes.root}>
+        <Grid container spacing={3} justify="flex-start">
+          <Grid
+            container
+            justify="center"
+            item
+            xs={12}
+            className={classes.gStyle}
+          >
+            <form>
+              {/* <input
                 id="checkAmount"
                 type="number"
                 min="0.00"
@@ -34,23 +42,27 @@ const BudgetBody = () => {
                 step="0.01"
                 className="validate"
               /> */}
+              <Grid xs={12} item>
                 <label for="checkAmount">Check Amount</label>
-                <TextField id="checkAmount" />
+              </Grid>{" "}
+              <Grid item xs={12}>
+                <TextField id="checkAmount" variant="outlined" size="small" />
               </Grid>
-            </div>
-          </form>
+            </form>
+          </Grid>
+
+          <Grid container item xs={12} justify="space-evenly">
+            <Grid item container justify="center" xs={4}>
+              <BudgetCol colName="Necessities" idName="needs" />
+            </Grid>
+            <Grid container justify="center" item xs={4}>
+              <BudgetCol colName="Debt / Savings" idName="dns" />
+            </Grid>
+            <Grid container justify="center" item xs={4}>
+              <BudgetCol colName="Wants" idName="wants" />
+            </Grid>
+          </Grid>
         </Grid>
-      </div>
-      <div className="row">
-        <div className="col s4">
-          <BudgetCol colName="Necessities" idName="needs" />
-        </div>
-        <div className="col s4">
-          <BudgetCol colName="Debt / Savings" idName="dns" />
-        </div>
-        <div className="col s4">
-          <BudgetCol colName="Wants" idName="wants" />
-        </div>
       </div>
     </>
   );

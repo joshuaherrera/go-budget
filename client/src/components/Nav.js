@@ -48,7 +48,7 @@ const Nav = () => {
             <div className={classes.toolbarButtons}>
               <Button color="inherit">Login</Button>
               <Button color="inherit">Signup</Button>
-              <Button color="inherit">Login</Button>
+              <Button color="inherit">Log Out</Button>
             </div>
           </Toolbar>
         </Container>
