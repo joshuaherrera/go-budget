@@ -1,11 +1,13 @@
 import React from "react";
 
 const BudgetCol = ({ colName, idName }) => {
+  // https://www.youtube.com/watch?v=YK-jXrsK3JU
+  // using js with materialize npm
   return (
     <>
       <div class="row">
         <div class="input-field col s12">
-          <label for={idName}>{colName}</label>
+          <label for={idName}>{colName} (X%)</label>
           <input
             id={idName}
             type="number"
@@ -28,11 +30,37 @@ const BudgetCol = ({ colName, idName }) => {
             step="0.01"
             class="validate"
           />
-          <div class="right-align">
-            <a class="waves-effect waves-light btn-small" href="#">
-              Add
-            </a>
-          </div>
+        </div>
+        <div class="right-align col s12">
+          <a class="waves-effect waves-light btn-small" href="#">
+            Add
+          </a>
+        </div>
+        <div class=" col s12">
+          <ul class="collection">
+            <li class="collection-item">
+              <div>
+                Car Payment
+                <div class="secondary-content right-align">$ 250</div>
+              </div>
+            </li>
+            <li class="collection-item">
+              <div>
+                Hulu
+                <div class="secondary-content right-align">$ 2</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class=" col s12">
+          <ul class="collection">
+            <li class="collection-item">
+              <div>
+                {colName} Remaining
+                <div class="secondary-content right-align">$ 700</div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </>
