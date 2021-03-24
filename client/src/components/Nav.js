@@ -9,13 +9,19 @@ const Nav = () => {
         </a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
-            <a href="sass.html">Sass</a>
+            <a href="#">Budgets</a>
           </li>
           <li>
-            <a href="badges.html">Components</a>
+            <a href="#">Debts</a>
           </li>
           <li>
-            <a href="collapsible.html">JavaScript</a>
+            <a href="#">Login</a>
+          </li>
+          <li>
+            <a href="#">Signup</a>
+          </li>
+          <li>
+            <a href="#">Logout</a>
           </li>
         </ul>
       </div>
