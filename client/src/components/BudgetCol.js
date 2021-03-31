@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import BudgetRemaining from "../BudgetRemaining";
+import ItemList from "./ItemList";
 
 const BudgetCol = ({ colName, idName }) => {
   // https://www.youtube.com/watch?v=YK-jXrsK3JU
   // using js with materialize npm
+  const [itemsMap, setItemsMap] = useState([
+    { name: "Car Payment", amount: 248.57 },
+    { name: "Hulu", amount: 1.99 },
+  ]);
+  const [remAmt, setRemAmt] = useState(799.98);
   return (
     <>
       <div class="row">
@@ -36,31 +43,9 @@ const BudgetCol = ({ colName, idName }) => {
             Add
           </a>
         </div>
+        <ItemList listName={colName} itemsMap={itemsMap} />
         <div class=" col s12">
-          <ul class="collection">
-            <li class="collection-item">
-              <div>
-                Car Payment
-                <div class="secondary-content right-align">$ 250</div>
-              </div>
-            </li>
-            <li class="collection-item">
-              <div>
-                Hulu
-                <div class="secondary-content right-align">$ 2</div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class=" col s12">
-          <ul class="collection">
-            <li class="collection-item">
-              <div>
-                {colName} Remaining
-                <div class="secondary-content right-align">$ 700</div>
-              </div>
-            </li>
-          </ul>
+          <BudgetRemaining remAmt={remAmt} />
         </div>
       </div>
     </>
