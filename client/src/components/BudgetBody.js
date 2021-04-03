@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import BudgetCol from "../components/BudgetCol";
 
 const BudgetBody = () => {
+  const [check, setCheck] = useState(2000);
+  const [necAmt, setNecAmt] = useState(1000);
+  const [dsAmt, setDsAmt] = useState(400);
+  const [wantAmt, setWantAmt] = useState(600);
+
   return (
     <>
       <div class="row">
@@ -15,6 +20,7 @@ const BudgetBody = () => {
                 max="9999999"
                 step="0.01"
                 class="validate"
+                value={check}
               />
               <label for="checkAmount">Check Amount</label>
             </div>
@@ -23,13 +29,28 @@ const BudgetBody = () => {
       </div>
       <div class="row">
         <div class="col s4">
-          <BudgetCol colName="Necessities" idName="needs" />
+          <BudgetCol
+            budgetAmt={necAmt}
+            colName="Necessities"
+            idName="needs"
+            perc="50"
+          />
         </div>
         <div class="col s4">
-          <BudgetCol colName="Debt / Savings" idName="dns" />
+          <BudgetCol
+            budgetAmt={dsAmt}
+            colName="Debt / Savings"
+            idName="dns"
+            perc="20"
+          />
         </div>
         <div class="col s4">
-          <BudgetCol colName="Wants" idName="wants" />
+          <BudgetCol
+            budgetAmt={wantAmt}
+            colName="Wants"
+            idName="wants"
+            perc="30"
+          />
         </div>
       </div>
     </>
