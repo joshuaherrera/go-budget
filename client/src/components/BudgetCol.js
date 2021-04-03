@@ -10,6 +10,10 @@ const BudgetCol = ({ budgetAmt, colName, idName, perc }) => {
   ]);
   const [remAmt, setRemAmt] = useState(799.98);
 
+  const submitNewBudgetItem = (item) => {
+    setItemsMap(itemsMap.concat(item));
+  };
+
   return (
     <>
       <div class="row">
@@ -27,7 +31,7 @@ const BudgetCol = ({ budgetAmt, colName, idName, perc }) => {
             disabled
           />
         </div>{" "}
-        <BudgetItem />
+        <BudgetItem addItem={submitNewBudgetItem} />
         <ItemList itemsMap={itemsMap} />
         <div class=" col s12">
           <BudgetRemaining listName={colName} remAmt={remAmt} />
